@@ -5,18 +5,31 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/configuration-reference/#executor-job
-    docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/configuration-reference/#steps
-    steps:
-      - checkout
-      - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+
+    
+    test:
+      runs-on: ubuntu-latest
+      name: Test
+      strategy:
+        matrix:
+          python-version: [3.8.10]
+      steps:
+        - name: Checkout Code
+          uses: actions/checkout@v2
+          with:
+            fetch-depth: 1
+        - name: Cache dependency
+          uses: actions/cache@v2
+          id: cachepip
+          with:
+            path: ~/.cache/pip
+            key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements*.txt') }}
+        - name: Install Requirements
+          run: pip install -r requirements.txt
+        - name: Install package
+          run: sudo make install
+        - name: Run Tests
+          run: make test
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
