@@ -1,5 +1,5 @@
 jobs:
-  build_and_test: 
+  test: 
     executor: python/default 
     steps:
       - checkout 
