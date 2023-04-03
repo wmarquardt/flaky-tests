@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="4" time="0.088" timestamp="2023-04-02T23:36:04.607697" hostname="marge"><testcase classname="tests.test_python_pachage" name="test_unicode" time="0.006"><failure message="AssertionError: assert 'just a template' == 'just a template!'&#10;  - just a template!&#10;  ?                -&#10;  + just a template">def test_unicode():
+        instance = p()
+&gt;       assert instance.__unicode__() == 'just a template!'
+E       AssertionError: assert 'just a template' == 'just a template!'
+E         - just a template!
+E         ?                -
+E         + just a template
+
+tests/test_python_pachage.py:7: AssertionError</failure></testcase><testcase classname="tests.test_python_pachage" name="test_other" time="0.002"><failure message="AttributeError: 'PythonPackageTemplate' object has no attribute 'other'">def test_other():
+        instance = p()
+&gt;       assert instance.other() is False
+E       AttributeError: 'PythonPackageTemplate' object has no attribute 'other'
+
+tests/test_python_pachage.py:11: AttributeError</failure></testcase><testcase classname="tests.test_python_pachage" name="test_ping" time="0.001" /><testcase classname="tests.test_python_pachage" name="test_this_gonna_be_flaky" time="0.002" /></testsuite></testsuites>
