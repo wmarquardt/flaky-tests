@@ -11,8 +11,8 @@ jobs:
       - python/install-packages:
           pkg-manager: pip
       - run:
-          name: Install Requirements
-          command: pip install -r requirements.txt
+          name: Install package
+          command: python setup.py install -f
       - run:
           name: Run tests
           command: make test
