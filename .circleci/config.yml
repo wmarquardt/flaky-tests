@@ -10,6 +10,8 @@ jobs:
       - checkout
       - python/install-packages:
           pkg-manager: pip
+      - name: Install Requirements
+         run: pip install -r requirements.txt
       - run:
           name: Run tests
           command: make test
