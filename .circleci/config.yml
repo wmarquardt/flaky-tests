@@ -15,7 +15,7 @@ jobs:
           command: python setup.py install -f
       - run:
           name: Run tests
-          command: pytest -v --junitxml="Result.xml"
+          command: pytest -v --junitxml="Report.xml"
       - store_test_results:
           path: ~/project/Report.xml
       - persist_to_workspace:
