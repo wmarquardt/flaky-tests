@@ -15,13 +15,13 @@ jobs:
           command: python setup.py install -f
       - run:
           name: Run tests
-          command: make test
+          command: pytest --html=Report.html
       - persist_to_workspace:
           root: ~/project
           paths:
             - .
       - store_test_results:
-          path: ~/project
+          path: ~/project/Report.html
 
   # deploy: # this can be any name you choose
   #   executor: python/default
