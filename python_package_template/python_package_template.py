@@ -5,3 +5,6 @@ class PythonPackageTemplate(object):
     @staticmethod
     def ping():
         return "pong"
+    
+    def other(self):
+        return False
