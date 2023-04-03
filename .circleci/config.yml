@@ -16,13 +16,12 @@ jobs:
       - run:
           name: Run tests
           command: pytest --html=Report.html
+      - store_test_results:
+          path: ~/project/Report.html
       - persist_to_workspace:
           root: ~/project
           paths:
             - .
-      - store_test_results:
-          path: ~/project/Report.html
-
   # deploy: # this can be any name you choose
   #   executor: python/default
   #   steps:
