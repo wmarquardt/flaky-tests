@@ -20,6 +20,8 @@ jobs:
           root: ~/project
           paths:
             - .
+      - store_test_results:
+          path: ~/project
 
   # deploy: # this can be any name you choose
   #   executor: python/default
