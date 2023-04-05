@@ -51,6 +51,5 @@ workflows:
   notify_flaky_tests:
     jobs:
       - flaky-tests-notify/notify
-      when:
-        on_fail
+    when: on_fail
 
