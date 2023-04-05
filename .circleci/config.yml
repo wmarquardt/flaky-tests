@@ -28,7 +28,6 @@ jobs:
           root: ~/project
           paths:
             - .
-      - flaky-tests-notify/notify
   # deploy: # this can be any name you choose
   #   executor: python/default
   #   steps:
@@ -47,5 +46,7 @@ workflows:
       #     filters:
       #       branches:
       #         only: main # only deploy when on main
-  
+  notify_flaky_tests:
+    jobs:
+      - flaky-tests-notify/notify
 
