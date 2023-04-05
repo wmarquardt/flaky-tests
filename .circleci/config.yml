@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   python: circleci/python@2.0.3
   heroku: circleci/heroku@1.2.6
-  flaky-tests-notify: tadashi/flaky-tests-notify@1.0.0
+  flaky-tests-notify: github.com/tadashi/flaky-tests-notify@1.0.0
 
 jobs:
   build_and_test: # this can be any name you choose
