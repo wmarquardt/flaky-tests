@@ -28,8 +28,12 @@ jobs:
           root: ~/project
           paths:
             - .
-      after_fail:
-          - flaky-tests-notify/notify
+      - run:
+          name: "send flaky notification"
+          command:  flaky-tests-notify/notify
+          when: on_fail
+          
+          
   # deploy: # this can be any name you choose
   #   executor: python/default
   #   steps:
