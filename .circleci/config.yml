@@ -28,7 +28,8 @@ jobs:
           root: ~/project
           paths:
             - .
-      - flaky-tests-notify/notify
+      - run:
+          flaky-tests-notify/notify
           when: on_fail
           
           
