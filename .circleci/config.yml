@@ -4,6 +4,11 @@ orbs:
   heroku: circleci/heroku@1.2.6
   flaky-tests-notify: tadashi0713/flaky-tests-notify@1.0.1
 
+parameters:
+  notify_flaky_tests:
+    type: boolean
+    default: false
+    
 jobs:
   build_and_test: # this can be any name you choose
     executor: python/default
